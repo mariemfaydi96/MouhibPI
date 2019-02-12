@@ -1,0 +1,47 @@
+Fonctionnalites:
+    type: entity
+    table: fonctionnalites
+    indexes:
+        idProjet:
+            columns:
+                - idProjet
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        etat:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+    manyToOne:
+        idprojet:
+            targetEntity: Projet
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idProjet:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

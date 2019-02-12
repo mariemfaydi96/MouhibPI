@@ -1,0 +1,46 @@
+Taches:
+    type: entity
+    table: taches
+    indexes:
+        idAgenda:
+            columns:
+                - idAgenda
+        idAgenda_2:
+            columns:
+                - idAgenda
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        datedebut:
+            type: date
+            nullable: false
+            column: dateDebut
+        datefin:
+            type: date
+            nullable: false
+            column: dateFin
+    manyToOne:
+        idagenda:
+            targetEntity: Agenda
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idAgenda:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

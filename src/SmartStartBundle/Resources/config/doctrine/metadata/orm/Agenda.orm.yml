@@ -1,0 +1,62 @@
+Agenda:
+    type: entity
+    table: agenda
+    indexes:
+        idProjet:
+            columns:
+                - idProjet
+        idFonctionnalite:
+            columns:
+                - idFonctionnalite
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        datedebut:
+            type: date
+            nullable: false
+            column: dateDebut
+        datefin:
+            type: date
+            nullable: false
+            column: dateFin
+    manyToOne:
+        idprojet:
+            targetEntity: Projet
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idProjet:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idfonctionnalite:
+            targetEntity: Fonctionnalites
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idFonctionnalite:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

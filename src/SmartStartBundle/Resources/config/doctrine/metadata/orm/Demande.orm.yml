@@ -1,0 +1,53 @@
+Demande:
+    type: entity
+    table: demande
+    indexes:
+        idMission:
+            columns:
+                - idMission
+        idFreelancer:
+            columns:
+                - idFreelancer
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        prix:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+    manyToOne:
+        idmission:
+            targetEntity: Mission
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idMission:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idfreelancer:
+            targetEntity: FosUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idFreelancer:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
