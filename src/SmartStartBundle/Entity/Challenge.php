@@ -31,9 +31,9 @@ class Challenge
     /**
      * @var string
      *
-     * @ORM\Column(name="statut", type="string", length=255, nullable=false)
+     * @ORM\Column(name="description", type="string", length=255, nullable=false)
      */
-    private $statut;
+    private $description;
 
     /**
      * @var \DateTime
@@ -41,6 +41,24 @@ class Challenge
      * @ORM\Column(name="date", type="date", nullable=false)
      */
     private $date;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     */
+    private $email;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="phone", type="integer", length=255, nullable=false)
+     */
+    private $phone;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="specialite", type="string", length=255, nullable=false)
+     */
+    private $specialite;
 
     /**
      * @var \FosUser
@@ -192,5 +210,101 @@ class Challenge
     public function getIdfreelancer()
     {
         return $this->idfreelancer;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Challenge
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Challenge
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param \long $phone
+     *
+     * @return Challenge
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return \long
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set specialite
+     *
+     * @param string $specialite
+     *
+     * @return Challenge
+     */
+    public function setSpecialite($specialite)
+    {
+        $this->specialite = $specialite;
+
+        return $this;
+    }
+
+    /**
+     * Get specialite
+     *
+     * @return string
+     */
+    public function getSpecialite()
+    {
+        return $this->specialite;
     }
 }

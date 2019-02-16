@@ -12,4 +12,8 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+    public function adminAction()
+    {
+        return $this->render('/Default/admin.html.twig');
+    }
 }

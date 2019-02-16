@@ -79,5 +79,11 @@ fos_user:
     from_email:
         address: 'mail.redington.co.in'
         sender_name: 'cloudsupport'
+    registration:
+        form:
+            type: SmartStartBundle\Form\RegistrationType
+    profile:
+        form:
+            type: SmartStartBundle\Form\RegistrationType
     service:
         mailer: 'fos_user.mailer.noop'
